@@ -1,6 +1,9 @@
+![frakov-skills — два скилла для Claude Code](cover.png)
+
 # frakov-skills
 
 Скиллы для Claude Code, которые я сделал под свою работу и которыми делюсь.
+Два скилла, Python 3 без зависимостей, лицензия MIT.
 
 ## Скиллы
 
