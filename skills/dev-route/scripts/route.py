@@ -12,8 +12,15 @@ import sys
 from pathlib import Path
 
 TEMPLATE = Path(__file__).resolve().parent.parent / "references" / "route-template.md"
-TRACKS = {"full": [1, 2, 3, 4, 5, 6, 7, 8], "lite": [1, 3, 4, 6, 7, 8], "feature": [3, 4, 6, 7]}
+TRACKS = {"full": [1, 2, 3, 4, 5, 6, 7, 8], "lite": [1, 3, 4, 6, 7, 8], "feature": [3, 4, 5, 6, 7]}
 HEAD = re.compile(r"^## (\d+)\. ", re.M)
+# Файлы, которые этап обязан оставить рядом с ROUTE.md: галочка без файла — не закрытый этап.
+FILES = {1: ["BRIEF.md"], 2: ["RESEARCH.md"], 3: ["GRILL.md"], 4: ["PRD.md", "CONTEXT.md", "PHILOSOPHY.md"],
+         5: ["REVIEW.md"], 6: ["CHECKLIST.md"]}
+# Фича живёт в своей папке; словарь и философия — общие файлы проекта, их фича не заводит.
+FILES_FEATURE = {3: ["FEATURE.md", "GRILL.md"], 4: ["PRD.md"], 5: ["REVIEW.md"], 6: ["CHECKLIST.md"]}
+# Этап пропущен решением пользователя: строка `- [~] пропущено пользователем: … (дата)` — файлы этапа не нужны.
+SKIPPED = re.compile(r"^\s*- \[~\] .*пропущено", re.M)
 
 
 def split(text):
@@ -32,16 +39,27 @@ def cmd_init(a):
         sys.exit(f"{p} уже есть — не затираю")
     head, secs = split(TEMPLATE.read_text())
     head = head.format(name=a.name, track=a.track, date=datetime.date.today().isoformat())
+    p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(head + "".join(s for n, s in secs if n in TRACKS[a.track]))
     print(f"создан {p}, этапы {TRACKS[a.track]}")
 
 
-def cmd_status(a):
-    _, secs = split(Path(a.route).read_text())
+def stages(route):
+    """-> [(номер, заголовок, незакрытое)]: открытые галочки + нет файла этапа (если этап не пропущен)."""
+    head, secs = split(Path(route).read_text())
+    files = FILES_FEATURE if "Трек: feature" in head else FILES
+    root = Path(route).parent
+    out = []
     for n, s in secs:
-        items = open_items(s)
+        need = [] if SKIPPED.search(s) else files.get(n, [])
+        out.append((n, s.splitlines()[0][3:], open_items(s) + [f"нет файла {f}" for f in need if not (root / f).exists()]))
+    return out
+
+
+def cmd_status(a):
+    for n, title, items in stages(a.route):
         if items:
-            print(f"Текущий этап: {s.splitlines()[0][3:]}")
+            print(f"Текущий этап: {title}")
             for i in items:
                 print(f"  [ ] {i}")
             return
@@ -49,11 +67,11 @@ def cmd_status(a):
 
 
 def cmd_gate(a):
-    _, secs = split(Path(a.route).read_text())
-    nums = [n for n, _ in secs]
+    st = stages(a.route)
+    nums = [n for n, _, _ in st]
     if a.stage not in nums:
         sys.exit(f"этапа {a.stage} нет в этом маршруте (есть {nums})")
-    blocked = [(s.splitlines()[0][3:], open_items(s)) for n, s in secs if n < a.stage and open_items(s)]
+    blocked = [(title, items) for n, title, items in st if n < a.stage and items]
     if not blocked:
         print(f"Этап {a.stage}: можно.")
         return
