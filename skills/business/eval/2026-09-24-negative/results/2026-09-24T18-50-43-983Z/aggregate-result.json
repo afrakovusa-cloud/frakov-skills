@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.280",
+  "startedAt": "2026-09-24T18:50:43.983Z",
+  "durationSeconds": 305,
+  "costUsd": 0.784132,
+  "partial": false,
+  "suite": {
+    "root": "/Users/alex/Documents/OBSIDIAN/.claude/skills/business",
+    "ablation": "none",
+    "threshold": 1,
+    "concurrency": 1,
+    "plugins": [
+      {
+        "name": "бизнес",
+        "path": "/Users/alex/Documents/OBSIDIAN/.claude/skills/business"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "neg1-mppss",
+      "dir": "eval/2026-09-24-negative/evals/neg1-mppss",
+      "source": "prose",
+      "promptMarkdown": "Какие огни несёт судно на якоре длиной более 50 метров по МППСС?",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.065641,
+            "judgeCostUsd": 0,
+            "durationSeconds": 34,
+            "startedAt": "2026-09-24T18:50:44.013Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-JuvA6p/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.05891300000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 15,
+            "startedAt": "2026-09-24T18:51:18.331Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-75al5U/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "neg2-ipoteka",
+      "dir": "eval/2026-09-24-negative/evals/neg2-ipoteka",
+      "source": "prose",
+      "promptMarkdown": "Мне копить на первый взнос по ипотеке или снимать квартиру дальше? Зарплата 90 тысяч.",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.073625,
+            "judgeCostUsd": 0,
+            "durationSeconds": 22,
+            "startedAt": "2026-09-24T18:51:33.144Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-J9mK8l/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.077925,
+            "judgeCostUsd": 0,
+            "durationSeconds": 27,
+            "startedAt": "2026-09-24T18:51:54.876Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-NzgAtw/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "neg3-motivation",
+      "dir": "eval/2026-09-24-negative/evals/neg3-motivation",
+      "source": "prose",
+      "promptMarkdown": "Как перестать прокрастинировать и заставить себя работать по утрам?",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.07138900000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 21,
+            "startedAt": "2026-09-24T18:52:21.455Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-vbpdwL/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.066705,
+            "judgeCostUsd": 0,
+            "durationSeconds": 21,
+            "startedAt": "2026-09-24T18:52:42.271Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-6L63g7/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "neg4-stocks",
+      "dir": "eval/2026-09-24-negative/evals/neg4-stocks",
+      "source": "prose",
+      "promptMarkdown": "Стоит ли сейчас покупать акции Сбербанка на ИИС?",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.072905,
+            "judgeCostUsd": 0,
+            "durationSeconds": 22,
+            "startedAt": "2026-09-24T18:53:03.317Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-CTEMgm/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.068041,
+            "judgeCostUsd": 0,
+            "durationSeconds": 28,
+            "startedAt": "2026-09-24T18:53:25.078Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-MbyImn/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "neg5-copy",
+      "dir": "eval/2026-09-24-negative/evals/neg5-copy",
+      "source": "prose",
+      "promptMarkdown": "Напиши текст поста в телеграм про мой новый диджей-сет, пару абзацев.",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.051864999999999994,
+            "judgeCostUsd": 0,
+            "durationSeconds": 38,
+            "startedAt": "2026-09-24T18:53:52.583Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-3KyXcl/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.05258499999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 41,
+            "startedAt": "2026-09-24T18:54:30.779Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-PfZIm3/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "neg6-lichnyi-nalog",
+      "dir": "eval/2026-09-24-negative/evals/neg6-lichnyi-nalog",
+      "source": "prose",
+      "promptMarkdown": "Пришёл налог на квартиру и на машину, где его оплатить и до какого числа?",
+      "runsPerCase": 2,
+      "timeoutSeconds": 120,
+      "maxTurns": 2,
+      "graders": [
+        {
+          "name": "skill-not-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.061769000000000004,
+            "judgeCostUsd": 0,
+            "durationSeconds": 16,
+            "startedAt": "2026-09-24T18:55:12.067Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-LjzvAi/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.062769,
+            "judgeCostUsd": 0,
+            "durationSeconds": 20,
+            "startedAt": "2026-09-24T18:55:28.564Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-CM2LNB/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill-not-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 6,
+    "casesPassed": 6,
+    "overallScore": 1,
+    "overallPassRate": 1
+  }
+}

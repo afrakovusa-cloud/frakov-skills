@@ -1,0 +1,83 @@
+<!--
+  Шаблон бизнес-плана для скилла `бизнес`.
+  Как использовать: скопируй, замени метки FILL своими данными; разделы — по playbooks/full-plan.md.
+  Самодостаточный (инлайн CSS), светлая/тёмная тема, дружелюбен к печати (Cmd+P → PDF).
+  Блоки: .verdict (итог), .data (таблица данных), table.econ (числа), .note (источник), .warn (⚠️ уточнить).
+  Куда сохранить и как отдать — SKILL.md, «Маршрут доставки владельцу».
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бизнес-план</title>
+<style>
+  :root{
+    --bg:#fbfaf7; --card:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e2da;
+    --accent:#c2410c; --accent-soft:#fff1e9; --good:#15803d; --warn:#b45309; --warn-bg:#fff8ec;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#14140f;--card:#1c1c17;--ink:#ece8e0;--muted:#a3a094;--line:#2e2d26;
+      --accent:#fb923c;--accent-soft:#2a1a10;--good:#4ade80;--warn:#fbbf24;--warn-bg:#241c0e;}
+  }
+  :root[data-theme=dark]{--bg:#14140f;--card:#1c1c17;--ink:#ece8e0;--muted:#a3a094;--line:#2e2d26;
+    --accent:#fb923c;--accent-soft:#2a1a10;--good:#4ade80;--warn:#fbbf24;--warn-bg:#241c0e;}
+  :root[data-theme=light]{--bg:#fbfaf7;--card:#fff;--ink:#1a1a1a;--muted:#6b6b6b;--line:#e6e2da;
+    --accent:#c2410c;--accent-soft:#fff1e9;--good:#15803d;--warn:#b45309;--warn-bg:#fff8ec;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;padding:40px 16px}
+  .wrap{max-width:820px;margin:0 auto}
+  .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;margin:0 0 6px}
+  h1{font-size:30px;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
+  h2{font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+  h3{font-size:16px;margin:20px 0 8px}
+  p{margin:10px 0}
+  .sub{color:var(--muted);margin:0 0 24px}
+  .verdict{background:var(--accent-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:20px 0}
+  .verdict .badge{display:inline-block;background:var(--good);color:#fff;font-weight:700;font-size:13px;
+    padding:3px 12px;border-radius:999px;margin-bottom:8px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+  table.econ td:last-child,table.econ th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  tbody tr:nth-child(even){background:color-mix(in srgb,var(--card) 60%,var(--bg))}
+  .tot td{font-weight:700;border-top:2px solid var(--line)}
+  .note,.warn{border-radius:10px;padding:10px 14px;margin:12px 0;font-size:14px}
+  .note{background:var(--card);border:1px solid var(--line);color:var(--muted)}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  .src{color:var(--muted);font-size:12px;font-style:italic}
+  .scroll{overflow-x:auto}
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+  @media print{body{background:#fff;color:#000;padding:0}.verdict,.note,.warn{border:1px solid #ccc}
+    tbody tr:nth-child(even){background:#f6f6f6}h2{border-color:#000}}
+</style>
+<div class="wrap">
+  <p class="eyebrow">Бизнес-план</p>
+  <h1><!-- FILL: Название --></h1>
+  <p class="sub"><!-- FILL: одна строка о чём --></p>
+
+  <div class="verdict">
+    <span class="badge"><!-- FILL: GO / УСЛОВНО / STOP --></span>
+    <div><!-- FILL: вердикт в 1–2 фразы --></div>
+  </div>
+
+  <h2>1. Данные</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Показатель</th><th>Значение</th><th>Источник</th></tr></thead>
+    <tbody><tr><td>…</td><td>…</td><td class="src">…</td></tr></tbody>
+  </table></div>
+
+  <h2>2. Юнит-экономика</h2>
+  <div class="scroll"><table class="econ">
+    <thead><tr><th>Статья</th><th>₽</th></tr></thead>
+    <tbody><tr><td>…</td><td>…</td></tr>
+      <tr class="tot"><td>Точка безубыточности</td><td>… /день</td></tr></tbody>
+  </table></div>
+
+  <!-- Далее секции — строго по playbooks/full-plan.md: «Стандарт глубины» + «Обязательные числовые блоки» -->
+  <!-- Ссылки на книги: <p class="src">Источник: source-book/<файл>.md</p> -->
+  <!-- ⚠️ уточнить локально: <div class="warn">…</div> -->
+
+  <footer><!-- FILL: модель — скилл `бизнес`; данные — дата/источник --></footer>
+</div>
