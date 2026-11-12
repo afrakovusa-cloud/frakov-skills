@@ -1,0 +1,11 @@
+# данные аккаунта и журналы — никогда не коммитить
+data/
+profile/
+*.json
+!.gitignore
+*.log
+*.jsonl
+cookies*
+__pycache__/
+*.pyc
+.venv/
